@@ -116,7 +116,7 @@
 
 <div class="tracking-form">
     <label for="trackingInput">Enter Tracking Number:</label>
-    <input type="text" id="trackingInput" placeholder="Enter tracking number (e.g., 1234995)">
+    <input type="text" id="trackingInput" placeholder="Enter tracking number (e.g., 1004995)">
     <button onclick="trackOrder()">Track Order</button>
 </div>
 
@@ -127,43 +127,56 @@
     const trackingData = {
         "1234995": {
             customerName: "Thabo Mokoena",
-            address: "House No. 17, Goldview Crescent, Sandton, Johannesburg, 2196, Gauteng, South Africa",
+            senderName: "John Doe",
+            senderAddress: "Mumbai, India",
+            customerAddress: "House No. 17, Goldview Crescent, Sandton, Johannesburg, 2196, Gauteng, South Africa",
             phone: "+27 72 123 4567",
             email: "thabo.mokoena@example.com",
             orderDetails: "3 x 24-Karat Gold Bars (1 kg each)",
             deliveryInstructions: "Please call 15 minutes before arrival. Secure delivery due to high-value item.",
             deliveryDate: "November 15, 2024",
             stages: [
-                { status: "Order Received", timestamp: "Nov 5, 2024 - 08:30 AM", location: "Mumbai, India" },
-                { status: "In Transit", timestamp: "Nov 7, 2024 - 11:00 AM", location: "Dubai, UAE" },
-                { status: "Out for Delivery", timestamp: "Nov 14, 2024 - 09:00 AM", location: "Johannesburg, South Africa" }
+                { status: "Shipment Received", timestamp: "Nov 5, 2024 - 08:30 AM", location: "Mumbai, India" },
+                { status: "Sorting Center", timestamp: "Nov 7, 2024 - 11:00 AM", location: "Dubai, UAE" },
+                { status: "Shipment Received, Sorting Center", timestamp: "Nov 10, 2024 - 02:00 PM", location: "Johannesburg, South Africa" },
+                { status: "Custom Clearance Cost", timestamp: "Nov 12, 2024 - 09:00 AM", location: "Johannesburg, South Africa", message: "To ensure a seamless and hassle-free delivery, a Custom Clearance Fee of £60 (R1,378.18) is required. This fee covers all necessary procedures, including documentation and customs processing." },
+                { status: "Shipment Cost", timestamp: "Nov 12, 2024 - 12:00 PM", location: "Johannesburg, South Africa", message: "Total: £180 (Approx. 4,134.55 ZAR). This covers the full delivery service, including handling, transportation, and tracking." },
+                { status: "Delivery Cost", timestamp: "Nov 14, 2024 - 09:00 AM", location: "Johannesburg, South Africa", message: "Delivery Cost: £220 (5053.33 ZAR). This covers the full cost of shipping and handling for your package." }
             ]
         },
         "57474748": {
             customerName: "Jessica Roberts",
-            address: "Apt 12B, The Summit Residences, 500 West 45th Street, New York, NY 10036, United States",
+            senderName: "Emily Green",
+            senderAddress: "London, UK",
+            customerAddress: "Apt 12B, The Summit Residences, 500 West 45th Street, New York, NY 10036, United States",
             phone: "+1 646 555 7890",
             email: "jessica.roberts@example.com",
             orderDetails: "2 x Bags of Loose Diamonds (1,000 carats per bag)",
             deliveryInstructions: "Signature required upon delivery. Delivery to be made to the building’s concierge.",
             deliveryDate: "November 20, 2024",
             stages: [
-                { status: "Order Received", timestamp: "Nov 8, 2024 - 10:00 AM", location: "Johannesburg, South Africa" },
-                { status: "In Transit", timestamp: "Nov 10, 2024 - 01:30 PM", location: "Dubai, UAE" },
-                { status: "Sorting Center", timestamp: "Nov 15, 2024 - 06:00 PM", location: "New York, USA" }
+                { status: "Shipment Received", timestamp: "Nov 8, 2024 - 10:00 AM", location: "Johannesburg, South Africa" },
+                { status: "Sorting Center", timestamp: "Nov 10, 2024 - 01:30 PM", location: "Dubai, UAE" },
+                { status: "Shipment Received, Sorting Center", timestamp: "Nov 12, 2024 - 03:00 PM", location: "New York, USA" },
+                { status: "Custom Clearance Cost", timestamp: "Nov 13, 2024 - 10:00 AM", location: "New York, USA", message: "To ensure a seamless and hassle-free delivery, a Custom Clearance Fee of £60 (R1,378.18) is required. This fee covers all necessary procedures, including documentation and customs processing." },
+                { status: "Shipment Cost", timestamp: "Nov 14, 2024 - 09:00 AM", location: "New York, USA", message: "Total: £180 (Approx. 4,134.55 ZAR). This covers the full delivery service, including handling, transportation, and tracking." },
+                { status: "Delivery Cost", timestamp: "Nov 16, 2024 - 05:00 PM", location: "New York, USA", message: "Delivery Cost: £220 (5053.33 ZAR). This covers the full cost of shipping and handling for your package." }
             ]
         },
         "45673219": {
-            customerName: "Daniel Clark",
-            address: "221 Maple Avenue, Toronto, ON M5A 3A1, Canada",
-            phone: "+1 416 555 0198",
-            email: "daniel.clark@example.com",
-            orderDetails: "1 x 1 kg bag of raw emerald stones",
+            customerName: "Tshidi",
+            senderName: "Riccardo Bruno",
+            senderAddress: "London, UK",
+            customerAddress: "106 Summerton Place 21 King Street Germiston 1401 South Africa",
+            phone: "+27 83 745 8667",
+            email: "N/A",
+            orderDetails: "GIFTS",
             deliveryInstructions: "Signature required upon delivery. Secure delivery due to high-value item.",
-            deliveryDate: "November 22, 2024",
+            deliveryDate: "November 21, 2024",
             stages: [
-                { status: "Order Received", timestamp: "Nov 11, 2024 - 09:00 AM", location: "São Paulo, Brazil" },
-                { status: "Sorting Center", timestamp: "Nov 14, 2024 - 03:00 PM", location: "Toronto, Canada" }
+                { status: "Shipment Received by Quick Go", timestamp: "Nov 17, 2024 - 05:00 PM", location: "Cromwell Road, London" },
+                { status: "Shipment Sent to Sorting Center", timestamp: "Nov 17, 2024 - 08:00 PM", location: "Cromwell Road, London" },
+                { status: "Shipment Received at Sorting Center", timestamp: "Nov 18, 2024 - 09:00 AM", location: "Cromwell Road, London" },
             ]
         }
     };
@@ -182,21 +195,39 @@
                         <span class="step-symbol">${index < data.stages.length - 1 ? '✔️' : '🚚'}</span>
                         <div class="label">${stage.status}</div>
                         <div class="info">${stage.timestamp} - ${stage.location}</div>
+                        ${stage.message ? `<div class="info">${stage.message}</div>` : ''}
                         <div class="step-line"></div>
+                        ${stage.status === "Custom Clearance Cost" || stage.status === "Shipment Cost" || stage.status === "Delivery Cost" ? `
+                            <button onclick="showAccountToPay('${trackingInput}')">Show Account to Pay</button>
+                        ` : ''}
                     </div>
                 </div>
             `).join("");
 
             trackingInfo.innerHTML = `
                 <h3>Tracking Number: ${trackingInput}</h3>
+                <p><strong>Sender:</strong> ${data.senderName} (Address: ${data.senderAddress})</p>
                 <p><strong>Customer:</strong> ${data.customerName}</p>
-                <p><strong>Address:</strong> ${data.address}</p>
+                <p><strong>Address:</strong> ${data.customerAddress}</p>
                 <p><strong>Order Details:</strong> ${data.orderDetails}</p>
                 <p><strong>Expected Delivery:</strong> ${data.deliveryDate}</p>
                 <div>${stagesHtml}</div>
             `;
         } else {
             trackingInfo.innerHTML = "<p>Tracking number not found. Please try again.</p>";
+        }
+    }
+
+    // Function to show account to pay
+    function showAccountToPay(trackingNumber) {
+        const trackingInfo = document.getElementById("trackingInfo");
+        if (trackingData[trackingNumber]) {
+            trackingInfo.innerHTML += `
+                <div><strong>Account name:</strong> Quick Go Courier</div>
+                <div><strong>Account no:</strong> 1618607624</div>
+                <div><strong>Bank name:</strong> Capitec</div>
+                <div><strong>Reference:</strong> Your Name</div>
+            `;
         }
     }
 </script>
